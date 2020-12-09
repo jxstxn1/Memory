@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 
 public class SpielSteuerung {
@@ -6,6 +7,8 @@ public class SpielSteuerung {
     private SpielFeld dasSpielFeld;
     private int spielfeldx = 6;
     private int spielfeldy = 6;
+    private int umgedreht = 0;
+    private int merkex, merkey;
 
     SpielSteuerung(SpielFeld pFeld) {
         dasSpielFeld = pFeld;
@@ -24,7 +27,15 @@ public class SpielSteuerung {
     }
 
     public void linksKlick(int x, int y) {
+        if(umgedreht == 0){
+            dasSpielFeld.knoepfe[x][y].setBackground(Color.yellow);
+            merkex = x;
+            merkey = y;
+            umgedreht++;
+        }
+        else{
 
+        }
     }
 
     public void rechtsKlick(int x, int y) {
@@ -32,4 +43,3 @@ public class SpielSteuerung {
     }
 
 }
-

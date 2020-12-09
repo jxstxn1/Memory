@@ -1,3 +1,4 @@
+
 import javax.swing.JButton;
 
 public class Knopf extends JButton {

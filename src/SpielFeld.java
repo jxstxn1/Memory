@@ -1,4 +1,3 @@
-
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -11,9 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class SpielFeld extends JFrame {
-    int size = 6;
-    public Knopf knoepfe[][] = new Knopf[size][size];
-    GridLayout gitterLayout = new GridLayout(0, size);
+
+    private int spiefelgroesse = 6;
+    public Knopf knoepfe[][] = new Knopf[spiefelgroesse][spiefelgroesse];
+    GridLayout gitterLayout = new GridLayout(0, spiefelgroesse);
     JPanel panel = new JPanel();
     //JTextField anzeige = new JTextField();
     //JButton neustart = new JButton("Neustart");
@@ -23,8 +23,8 @@ public class SpielFeld extends JFrame {
     public void fuegeAllesZurOberflaecheHinzu(final Container pane) {
         panel.setLayout(gitterLayout);
 
-        for (int cy = 0; cy < 6 ; cy++) {
-            for (int cx = 0; cx < 6; cx++) {
+        for (int cy = 0; cy < spiefelgroesse; cy++) {
+            for (int cx = 0; cx < spiefelgroesse; cx++) {
 
                 //erzeuge Button
                 knoepfe[cx][cy] = new Knopf(cx, cy);
@@ -37,7 +37,7 @@ public class SpielFeld extends JFrame {
                     int px = ((Knopf) e.getSource()).gibX();
                     int py = ((Knopf) e.getSource()).gibY();
                     System.out.println(px+"/"+py + " wurde gedrueckt");
-
+                    dieSpielSteuerung.linksKlick(px, py);
                 });
             }
         }
